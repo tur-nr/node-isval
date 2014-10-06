@@ -75,7 +75,7 @@ Passing a constructor function will check if the value is an `instanceof` of tha
 
 ```js
 var buffer = new ArrayBuffer();
-is(buffer, ArrayBuffer);
+isval(buffer, ArrayBuffer);
 ```
 
 ### Truthy Values
@@ -83,8 +83,8 @@ is(buffer, ArrayBuffer);
 Passing no type will check for truthy values.
 
 ```js
-is(1);
-is('true');
+isval(1);
+isval('true');
 ```
 
 ## API
