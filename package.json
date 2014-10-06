@@ -1,0 +1,28 @@
+{
+  "name": "isval",
+  "version": "0.0.1",
+  "description": "Yet another value type validator.",
+  "main": "index.js",
+  "scripts": {
+    "test": "node_modules/.bin/mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/tur-nr/node-isval.git"
+  },
+  "keywords": [
+    "type",
+    "checker",
+    "validator",
+    "valid"
+  ],
+  "author": "Christopher Turner <turner296@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/tur-nr/node-isval/issues"
+  },
+  "homepage": "https://github.com/tur-nr/node-isval",
+  "devDependencies": {
+    "mocha": "^1.21.4"
+  }
+}
