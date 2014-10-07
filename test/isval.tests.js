@@ -20,6 +20,7 @@ describe('#isval', function() {
     assert.ok(!is('', null));
     assert.ok(!is('', 'undefined'));
     assert.ok(!is('', undefined));
+    assert.ok(!is('', 'arguments'));
     assert.ok(!is('', Date));
     assert.ok(!is('', Boolean));
     assert.ok(!is('', Number));
@@ -46,6 +47,7 @@ describe('#isval', function() {
     assert.ok(!is(0, null));
     assert.ok(!is(0, 'undefined'));
     assert.ok(!is(0, undefined));
+    assert.ok(!is(0, 'arguments'));
     assert.ok(!is(0, Date));
     assert.ok(!is(0, String));
     assert.ok(!is(0, Boolean));
@@ -72,6 +74,7 @@ describe('#isval', function() {
     assert.ok(!is(true, null));
     assert.ok(!is(true, 'undefined'));
     assert.ok(!is(true, undefined));
+    assert.ok(!is(true, 'arguments'));
     assert.ok(!is(true, Date));
     assert.ok(!is(true, String));
     assert.ok(!is(true, Number));
@@ -100,6 +103,7 @@ describe('#isval', function() {
     assert.ok(!is(fn, null));
     assert.ok(!is(fn, 'undefined'));
     assert.ok(!is(fn, undefined));
+    assert.ok(!is(fn, 'arguments'));
     assert.ok(!is(fn, Date));
     assert.ok(!is(fn, String));
     assert.ok(!is(fn, Boolean));
@@ -126,6 +130,7 @@ describe('#isval', function() {
     assert.ok(!is({}, null));
     assert.ok(!is({}, 'undefined'));
     assert.ok(!is({}, undefined));
+    assert.ok(!is({}, 'arguments'));
     assert.ok(!is({}, Date));
     assert.ok(!is({}, String));
     assert.ok(!is({}, Boolean));
@@ -153,6 +158,7 @@ describe('#isval', function() {
     assert.ok(!is([], null));
     assert.ok(!is([], 'undefined'));
     assert.ok(!is([], undefined));
+    assert.ok(!is([], 'arguments'));
     assert.ok(!is([], Date));
     assert.ok(!is([], String));
     assert.ok(!is([], Boolean));
@@ -181,6 +187,7 @@ describe('#isval', function() {
     assert.ok(!is(reg, null));
     assert.ok(!is(reg, 'undefined'));
     assert.ok(!is(reg, undefined));
+    assert.ok(!is(reg, 'arguments'));
     assert.ok(!is(reg, Date));
     assert.ok(!is(reg, String));
     assert.ok(!is(reg, Boolean));
@@ -210,6 +217,7 @@ describe('#isval', function() {
     assert.ok(!is(date, null));
     assert.ok(!is(date, 'undefined'));
     assert.ok(!is(date, undefined));
+    assert.ok(!is(date, 'arguments'));
     assert.ok(!is(date, RegExp));
     assert.ok(!is(date, String));
     assert.ok(!is(date, Boolean));
@@ -236,6 +244,7 @@ describe('#isval', function() {
     assert.ok(!is(null, 'number'));
     assert.ok(!is(null, 'undefined'));
     assert.ok(!is(null, undefined));
+    assert.ok(!is(null, 'arguments'));
     assert.ok(!is(null, RegExp));
     assert.ok(!is(null, String));
     assert.ok(!is(null, Boolean));
@@ -263,6 +272,7 @@ describe('#isval', function() {
     assert.ok(!is(undefined, 'number'));
     assert.ok(!is(undefined, 'null'));
     assert.ok(!is(undefined, null));
+    assert.ok(!is(undefined, 'arguments'));
     assert.ok(!is(undefined, RegExp));
     assert.ok(!is(undefined, String));
     assert.ok(!is(undefined, Boolean));
@@ -290,6 +300,7 @@ describe('#isval', function() {
     assert.ok(!is(NaN, 'number'));
     assert.ok(!is(NaN, 'null'));
     assert.ok(!is(NaN, null));
+    assert.ok(!is(NaN, 'arguments'));
     assert.ok(!is(NaN, RegExp));
     assert.ok(!is(NaN, String));
     assert.ok(!is(NaN, Boolean));
@@ -297,6 +308,33 @@ describe('#isval', function() {
     assert.ok(!is(NaN, Object));
     assert.ok(!is(NaN, Function));
     assert.ok(!is(NaN, Array));
+  });
+
+  it('should validate arguments', function() {
+    assert.ok(is(arguments, 'arguments'));
+    assert.ok(is(arguments, 'object'));
+    assert.ok(is(arguments, Object));
+
+    assert.ok(!is(arguments, 'NaN'));
+    assert.ok(!is(arguments, NaN));
+    assert.ok(!is(arguments, 'undefined'));
+    assert.ok(!is(arguments, undefined));
+    assert.ok(!is(arguments, 'date'));
+    assert.ok(!is(arguments, Date));
+    assert.ok(!is(arguments, 'regex'));
+    assert.ok(!is(arguments, 'regexp'));
+    assert.ok(!is(arguments, 'array'));
+    assert.ok(!is(arguments, 'function'));
+    assert.ok(!is(arguments, 'boolean'));
+    assert.ok(!is(arguments, 'string'));
+    assert.ok(!is(arguments, 'number'));
+    assert.ok(!is(arguments, 'null'));
+    assert.ok(!is(arguments, null));
+    assert.ok(!is(arguments, String));
+    assert.ok(!is(arguments, Boolean));
+    assert.ok(!is(arguments, Number));
+    assert.ok(!is(arguments, Function));
+    assert.ok(!is(arguments, Array));
   });
 
   it('should validate instanceof', function() {
@@ -323,6 +361,7 @@ describe('#isval', function() {
     assert.ok(!is(inst, 'number'));
     assert.ok(!is(inst, 'null'));
     assert.ok(!is(inst, null));
+    assert.ok(!is(inst, 'arguments'));
     assert.ok(!is(inst, String));
     assert.ok(!is(inst, Boolean));
     assert.ok(!is(inst, Number));

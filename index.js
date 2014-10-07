@@ -53,6 +53,13 @@ module.exports = function isval(value, type) {
     case 'NaN':
       return Number.isNaN(value);
 
+    case 'arguments':
+      if (isObject(value)) {
+        return (typeof value.callee === 'function')
+          || (/arguments/i).test(value.toString());
+      }
+      return false;
+
 
     default:
       return (typeof type === 'function')
