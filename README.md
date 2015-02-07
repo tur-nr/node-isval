@@ -59,6 +59,7 @@ The following types are available:
 * `'undefined'`
 * `'NaN'`
 * `'arguments'`
+* `'integer'`
 
 Types can also be literal values:
 
