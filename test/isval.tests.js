@@ -384,4 +384,17 @@ describe('#isval', function() {
     assert.ok(!is(undefined));
     assert.ok(!is(NaN));
   });
+
+  it('should test for integer values', function() {
+    assert.ok(is(1, 'integer'));
+
+    assert.ok(!is(true, 'integer'));
+    assert.ok(!is('', 'integer'));
+    assert.ok(!is(1.5, 'integer'));
+    assert.ok(!is(null, 'integer'));
+    assert.ok(!is(undefined, 'integer'));
+    assert.ok(!is(NaN, 'integer'));
+    assert.ok(!is([], 'integer'));
+    assert.ok(!is({}, 'integer'));
+  });
 });

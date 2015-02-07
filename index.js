@@ -60,6 +60,8 @@ module.exports = function isval(value, type) {
       }
       return false;
 
+    case 'integer':
+      return isval(value, 'number') && value % 1 === 0;
 
     default:
       return (typeof type === 'function')
