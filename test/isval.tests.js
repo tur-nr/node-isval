@@ -397,4 +397,42 @@ describe('#isval', function() {
     assert.ok(!is([], 'integer'));
     assert.ok(!is({}, 'integer'));
   });
+
+  // generator
+  if ('function' === typeof Map) {
+    it('should test for generators', function() {
+      var gen = function *() { yield null; };
+
+      assert.ok(is(gen, 'generator*'));
+      assert.ok(is(gen(), 'generator'));
+      assert.ok(!is(gen, 'generator'));
+      assert.ok(!is(gen(), 'generator*'));
+
+      assert.ok(is(gen, Function));
+      assert.ok(is(gen, 'function'));
+
+      assert.ok(!is(gen, 'NaN'));
+      assert.ok(!is(gen, NaN));
+      assert.ok(!is(gen, 'undefined'));
+      assert.ok(!is(gen, undefined));
+      assert.ok(!is(gen, 'date'));
+      assert.ok(!is(gen, Date));
+      assert.ok(!is(gen, 'object'));
+      assert.ok(!is(gen, 'regex'));
+      assert.ok(!is(gen, 'regexp'));
+      assert.ok(!is(gen, 'array'));
+      assert.ok(!is(gen, 'boolean'));
+      assert.ok(!is(gen, 'string'));
+      assert.ok(!is(gen, 'number'));
+      assert.ok(!is(gen, 'null'));
+      assert.ok(!is(gen, null));
+      assert.ok(!is(gen, 'arguments'));
+      assert.ok(!is(gen, RegExp));
+      assert.ok(!is(gen, String));
+      assert.ok(!is(gen, Boolean));
+      assert.ok(!is(gen, Number));
+      assert.ok(!is(gen, Object));
+      assert.ok(!is(gen, Array));
+    });
+  }
 });

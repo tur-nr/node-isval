@@ -24,5 +24,8 @@
   "homepage": "https://github.com/tur-nr/node-isval",
   "devDependencies": {
     "mocha": "^1.21.4"
+  },
+  "dependencies": {
+    "is-generator": "^1.0.0"
   }
 }
