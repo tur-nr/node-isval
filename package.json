@@ -1,6 +1,6 @@
 {
   "name": "isval",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Yet another value type validator.",
   "main": "index.js",
   "scripts": {
