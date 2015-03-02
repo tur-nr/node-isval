@@ -60,6 +60,8 @@ The following types are available:
 * `'NaN'`
 * `'arguments'`
 * `'integer'`
+* `'generator'`, `(function *(){})()`
+* `'generator*'`, `function *() {}`
 
 Types can also be literal values:
 
