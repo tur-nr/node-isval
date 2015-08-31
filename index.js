@@ -1,5 +1,3 @@
-var isgen = require('is-generator');
-
 module.exports = function isval(value, type) {
   if (arguments.length === 2 && typeof type === 'undefined') {
     type = 'undefined';
@@ -13,6 +11,18 @@ module.exports = function isval(value, type) {
 
   function constructorType(constructor) {
     return constructor.name.toLowerCase();
+  }
+
+  function isGenerator (obj) {
+    return obj &&
+      typeof obj.next === 'function' &&
+      typeof obj.throw === 'function'
+  }
+
+  function isGeneratorFunction (fn) {
+    return typeof fn === 'function' &&
+      fn.constructor &&
+      fn.constructor.name === 'GeneratorFunction'
   }
 
   switch (type) {
@@ -66,10 +76,10 @@ module.exports = function isval(value, type) {
       return isval(value, 'number') && value % 1 === 0;
 
     case 'generator':
-      return isgen(value);
+      return isGenerator(value);
 
     case 'generator*':
-      return isgen.fn(value);
+      return isGeneratorFunction(value);
 
     default:
       return (typeof type === 'function')
