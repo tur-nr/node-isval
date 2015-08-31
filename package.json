@@ -4,7 +4,7 @@
   "description": "Yet another value type validator.",
   "main": "index.js",
   "scripts": {
-    "test": "node_modules/.bin/mocha"
+    "test": "mocha --harmony"
   },
   "repository": {
     "type": "git",
