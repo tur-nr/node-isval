@@ -1,9 +1,11 @@
 {
   "name": "isval",
-  "version": "0.0.3",
+  "version": "0.1.0",
   "description": "Yet another value type validator.",
   "main": "index.js",
   "scripts": {
+    "prepublish": "npm test",
+    "preversion": "npm test",
     "test": "mocha --harmony"
   },
   "repository": {
@@ -25,7 +27,5 @@
   "devDependencies": {
     "mocha": "^1.21.4"
   },
-  "dependencies": {
-    "is-generator": "^1.0.0"
-  }
+  "dependencies": {}
 }

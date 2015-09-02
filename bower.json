@@ -1,0 +1,24 @@
+{
+  "name": "isval",
+  "main": "index.js",
+  "version": "0.0.3",
+  "homepage": "https://github.com/tur-nr/node-isval",
+  "authors": [
+    "Christopher Turner <turner296@gmail.com>"
+  ],
+  "description": "Yet another value type validator.",
+  "keywords": [
+    "type",
+    "checker",
+    "valid",
+    "validator"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
