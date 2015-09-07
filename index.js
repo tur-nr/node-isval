@@ -10,8 +10,18 @@
   return function isval(value, type) {
     if (arguments.length === 2 && typeof type === 'undefined') {
       type = 'undefined';
-    } else if (Number.isNaN(type)) {
+    } else if (isNaN_(type)) {
       type = 'NaN';
+    }
+
+    function isNaN_(num) {
+      if (typeof Number.isNaN === 'function') {
+        return Number.isNaN(num);
+      } else if (typeof isNaN === 'function') {
+        return isNaN(num);
+      } else {
+        return num !== num;
+      }
     }
 
     function isObject(obj) {
@@ -44,7 +54,7 @@
         return typeof value === type && !isNaN(value);
 
       case Number:
-        if (isNaN(value)) { return false; }
+        if (isNaN_(value)) { return false; }
       // fall through
       case String:
       case Boolean:
@@ -72,7 +82,7 @@
         return typeof value === 'undefined';
 
       case 'NaN':
-        return Number.isNaN(value);
+        return isNaN_(value);
 
       case 'arguments':
         if (isObject(value)) {
