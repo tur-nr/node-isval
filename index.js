@@ -17,8 +17,6 @@
     function isNaN_(num) {
       if (typeof Number.isNaN === 'function') {
         return Number.isNaN(num);
-      } else if (typeof isNaN === 'function') {
-        return isNaN(num);
       } else {
         return num !== num;
       }
